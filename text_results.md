@@ -1,4 +1,24 @@
 
+Python file
+daniebahry@danielbahry:~/ECEN_350_Labs/ECEN350_Labs/Lab01 $ perf stat python3 ./benchmark.py
+Checksum: 41667916675000
+
+ Performance counter stats for 'python3 ./benchmark.py':
+
+   228,570,045,009      task-clock:u                     #    0.995 CPUs utilized             
+                 0      context-switches:u               #    0.000 /sec                      
+                 0      cpu-migrations:u                 #    0.000 /sec                      
+             2,442      page-faults:u                    #   10.684 /sec                      
+   787,875,862,393      instructions:u                   #    1.93  insn per cycle            
+   408,678,762,427      cycles:u                         #    1.788 GHz                       
+         2,994,348      branch-misses:u                                                       
+
+     229.693566424 seconds time elapsed
+
+     228.393008000 seconds user
+       0.131857000 seconds sys
+
+
 
 
 
@@ -29,7 +49,7 @@ Checksum: 41667916675000
 
 
 
-Aharosn C file:
+Aharons C file:
 daniebahry@danielbahry:~/ECEN_350_Labs/ECEN350_Labs/Lab01 $ perf stat ./benchmark 
 Checksum: 41667916675000
 
