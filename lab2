@@ -1,0 +1,74 @@
+
+
+For Question 12, your assembly function needs to:
+
+receive the long long int argument in X0
+add 0xfe
+store the result in myvalue
+return the address of myvalue in X0
+
+A clean Lab02_3d.S using the same kinds of instructions you’ve already covered is:
+
+.section .text
+
+.globl lab02_3d
+
+lab02_3d:
+    ADD X0, X0, 0xfe
+    ADR X1, myvalue
+    STUR X0, [X1, #0]
+    ADD X0, X1, XZR
+    BR X30
+
+.section .data
+
+myvalue:
+    .quad 0
+
+What each line does:
+
+ADD X0, X0, 0xfe
+
+takes the argument already in X0 and adds 0xfe.
+
+ADR X1, myvalue
+
+puts the address of myvalue into X1.
+
+STUR X0, [X1, #0]
+
+stores the 64-bit result at myvalue.
+
+ADD X0, X1, XZR
+
+copies the address from X1 into X0, because X0 is also the register used for a function's return value.
+
+BR X30
+
+returns to main.
+
+For main.c, you need something along these lines:
+
+#include <stdio.h>
+
+extern long long int *lab02_3d(long long int);
+
+int main() {
+    long long int *result;
+
+    result = lab02_3d(10);
+
+    printf("Value = %lld\n", *result);
+
+    return 0;
+}
+
+If you pass 10, then:
+
+10 + 0xfe
+= 10 + 254
+= 264
+
+so the output should be approximately:
+
+Value = 264
