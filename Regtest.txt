@@ -1,0 +1,75 @@
+Script started on 2026-10-05 12:53:06-05:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="119" LINES="75"]
+[?2004h]0;daniebahry@danielbahry: ~/ECEN_350_Labs/ECEN350_Labs/Lab05[01;32mdaniebahry@danielbahry[00m:[01;34m~/ECEN_350_Labs/ECEN350_Labs/Lab05 $[00m micro RegisterFile.vclear [Kd ECEN_350_Labs/ECEN350_Labs/Lab05ls[Kclear [6@mnake clean[Cicro GatesTest.vV[4P.vgtkwave GatesTest.vcd[10P./GatesTestiverilog -o GatesTest GatesTest.v Gates.v[24Prm RegisterFile.v[3Pmux2to1_8.v[1Pmicro Gates.vTest.v[4P.vrm mux2to1_8.vRegisterFile.viverilog -o GatesTest GatesTest.v Gates.v./GatesTest[Kgtkwave GatesTest.vcd[8Pmicro Gates.vTest.Vv[5Pnake clean [6Pclear[C[4Plscd ECEN_350_Labs/ECEN350_Labs/Lab05ls[Kclear [6@mnake clean[Cicro GatesTest.vV[4P.vgtkwave GatesTest.vcd[8Pmicro Gates.vTest.Vv[5Pnake clean [6Pclear[C[4Plscd ECEN_350_Labs/ECEN350_Labs/Lab05lear [Kmicro RegisterFile.v[K./ [KREg[K[Kegtest
+[?2004lVCD info: dumpfile RegisterFile.vcd opened for output.
+[35000] PASS: R0 we=1 wrote=9215352440895e81  BusA=9215352440895e81 BusB=9215352440895e81
+[55000] PASS: R0 we=0 wrote=0484d60931f05663  BusA=9215352440895e81 BusB=9215352440895e81
+[75000] PASS: R1 we=1 wrote=86b97b0dc6df998d  BusA=86b97b0dc6df998d BusB=86b97b0dc6df998d
+[95000] PASS: R1 we=0 wrote=32c2846509375212  BusA=86b97b0dc6df998d BusB=86b97b0dc6df998d
+[115000] PASS: R2 we=1 wrote=80f3e30186d7cd0d  BusA=80f3e30186d7cd0d BusB=80f3e30186d7cd0d
+[135000] PASS: R2 we=0 wrote=bb23f1769e8dcd3d  BusA=80f3e30186d7cd0d BusB=80f3e30186d7cd0d
+[155000] PASS: R3 we=1 wrote=f6d457edc62df78c  BusA=f6d457edc62df78c BusB=f6d457edc62df78c
+[175000] PASS: R3 we=0 wrote=fcfde9f9633724c6  BusA=f6d457edc62df78c BusB=f6d457edc62df78c
+[195000] PASS: R4 we=1 wrote=62f784c55513d2aa  BusA=62f784c55513d2aa BusB=62f784c55513d2aa
+[215000] PASS: R4 we=0 wrote=f2aff7e53bd27277  BusA=62f784c55513d2aa BusB=62f784c55513d2aa
+[235000] PASS: R5 we=1 wrote=0932d612c7ecdb8f  BusA=0932d612c7ecdb8f BusB=0932d612c7ecdb8f
+[255000] PASS: R5 we=0 wrote=f93069f2677696ce  BusA=0932d612c7ecdb8f BusB=0932d612c7ecdb8f
+[275000] PASS: R6 we=1 wrote=74007ae862ca4ec5  BusA=74007ae862ca4ec5 BusB=74007ae862ca4ec5
+[295000] PASS: R6 we=0 wrote=ae58495c5e8e28bd  BusA=74007ae862ca4ec5 BusB=74007ae862ca4ec5
+[315000] PASS: R7 we=1 wrote=16ab582d32a72665  BusA=16ab582d32a72665 BusB=16ab582d32a72665
+[335000] PASS: R7 we=0 wrote=31ef62638573870a  BusA=16ab582d32a72665 BusB=16ab582d32a72665
+[355000] PASS: R8 we=1 wrote=403b228090642120  BusA=403b228090642120 BusB=403b228090642120
+[375000] PASS: R8 we=0 wrote=d57845aa4ecccc9d  BusA=403b228090642120 BusB=403b228090642120
+[395000] PASS: R9 we=1 wrote=4b203e960983b813  BusA=4b203e960983b813 BusB=4b203e960983b813
+[415000] PASS: R9 we=0 wrote=06bc380d29a7d653  BusA=4b203e960983b813 BusB=4b203e960983b813
+[435000] PASS: R10 we=1 wrote=b59fdd6b6aa62ad5  BusA=b59fdd6b6aa62ad5 BusB=b59fdd6b6aa62ad5
+[455000] PASS: R10 we=0 wrote=01174a0257563eae  BusA=b59fdd6b6aa62ad5 BusB=b59fdd6b6aa62ad5
+[475000] PASS: R11 we=1 wrote=8effe91d67c572cf  BusA=8effe91d67c572cf BusB=8effe91d67c572cf
+[495000] PASS: R11 we=0 wrote=918449238509650a  BusA=8effe91d67c572cf BusB=8effe91d67c572cf
+[515000] PASS: R12 we=1 wrote=65730aca1e314c3c  BusA=65730aca1e314c3c BusB=65730aca1e314c3c
+[535000] PASS: R12 we=0 wrote=f968bdf2c52e618a  BusA=65730aca1e314c3c BusB=65730aca1e314c3c
+[555000] PASS: R13 we=1 wrote=a0c4b3416c4b34d8  BusA=a0c4b3416c4b34d8 BusB=a0c4b3416c4b34d8
+[575000] PASS: R13 we=0 wrote=bc20f378448a1289  BusA=a0c4b3416c4b34d8 BusB=a0c4b3416c4b34d8
+[595000] PASS: R14 we=1 wrote=f5c50debdb0265b6  BusA=f5c50debdb0265b6 BusB=f5c50debdb0265b6
+[615000] PASS: R14 we=0 wrote=e34bf9c6d71513ae  BusA=f5c50debdb0265b6 BusB=f5c50debdb0265b6
+[635000] PASS: R15 we=1 wrote=5e7502bc950fdd2a  BusA=5e7502bc950fdd2a BusB=5e7502bc950fdd2a
+[655000] PASS: R15 we=0 wrote=05d79a0b3897be71  BusA=5e7502bc950fdd2a BusB=5e7502bc950fdd2a
+[675000] PASS: R16 we=1 wrote=c2f24185a7f2554f  BusA=c2f24185a7f2554f BusB=c2f24185a7f2554f
+[695000] PASS: R16 we=0 wrote=1dcc603b9d06333a  BusA=c2f24185a7f2554f BusB=c2f24185a7f2554f
+[715000] PASS: R17 we=1 wrote=3f23327e8aaa4b15  BusA=3f23327e8aaa4b15 BusB=3f23327e8aaa4b15
+[735000] PASS: R17 we=0 wrote=f8d99bf1ec9c4bd9  BusA=3f23327e8aaa4b15 BusB=3f23327e8aaa4b15
+[755000] PASS: R18 we=1 wrote=b1230762a635fb4c  BusA=b1230762a635fb4c BusB=b1230762a635fb4c
+[775000] PASS: R18 we=0 wrote=cfa1559fc7b9a18f  BusA=b1230762a635fb4c BusB=b1230762a635fb4c
+[795000] PASS: R19 we=1 wrote=fc6da9f85bcd60b7  BusA=fc6da9f85bcd60b7 BusB=fc6da9f85bcd60b7
+[815000] PASS: R19 we=0 wrote=4fc4569f2e7d945c  BusA=fc6da9f85bcd60b7 BusB=fc6da9f85bcd60b7
+[835000] PASS: R20 we=1 wrote=2dcbc05bc4de3789  BusA=2dcbc05bc4de3789 BusB=2dcbc05bc4de3789
+[855000] PASS: R20 we=0 wrote=24ae324968233ed0  BusA=2dcbc05bc4de3789 BusB=2dcbc05bc4de3789
+[875000] PASS: R21 we=1 wrote=6bfec0d728c7fc51  BusA=6bfec0d728c7fc51 BusB=6bfec0d728c7fc51
+[895000] PASS: R21 we=0 wrote=cb212f96861d7f0c  BusA=6bfec0d728c7fc51 BusB=6bfec0d728c7fc51
+[915000] PASS: R22 we=1 wrote=612ccec2e457edc8  BusA=612ccec2e457edc8 BusB=612ccec2e457edc8
+[935000] PASS: R22 we=0 wrote=3b825a779ef2ed3d  BusA=612ccec2e457edc8 BusB=612ccec2e457edc8
+[955000] PASS: R23 we=1 wrote=890cdb123f05007e  BusA=890cdb123f05007e BusB=890cdb123f05007e
+[975000] PASS: R23 we=0 wrote=b6e5816d9cd9e739  BusA=890cdb123f05007e BusB=890cdb123f05007e
+[995000] PASS: R24 we=1 wrote=8fd28f1f69ebf6d3  BusA=8fd28f1f69ebf6d3 BusB=8fd28f1f69ebf6d3
+[1015000] PASS: R24 we=0 wrote=c2d92f853c148878  BusA=8fd28f1f69ebf6d3 BusB=8fd28f1f69ebf6d3
+[1035000] PASS: R25 we=1 wrote=adda595ba48b4b49  BusA=adda595ba48b4b49 BusB=adda595ba48b4b49
+[1055000] PASS: R25 we=0 wrote=1ff2ae3f950caf2a  BusA=adda595ba48b4b49 BusB=adda595ba48b4b49
+[1075000] PASS: R26 we=1 wrote=ac156358433f3886  BusA=ac156358433f3886 BusB=ac156358433f3886
+[1095000] PASS: R26 we=0 wrote=471a0c8e4e2ff29c  BusA=ac156358433f3886 BusB=ac156358433f3886
+[1115000] PASS: R27 we=1 wrote=fd3599fa137dbc26  BusA=fd3599fa137dbc26 BusB=fd3599fa137dbc26
+[1135000] PASS: R27 we=0 wrote=b9961773518bb4a3  BusA=fd3599fa137dbc26 BusB=fd3599fa137dbc26
+[1155000] PASS: R28 we=1 wrote=1799a82f59d292b3  BusA=1799a82f59d292b3 BusB=1799a82f59d292b3
+[1175000] PASS: R28 we=0 wrote=2fd8565fa2290d44  BusA=1799a82f59d292b3 BusB=1799a82f59d292b3
+[1195000] PASS: R29 we=1 wrote=fbf8fdf7659b36cb  BusA=fbf8fdf7659b36cb BusB=fbf8fdf7659b36cb
+[1215000] PASS: R29 we=0 wrote=73091ae6ad28db5a  BusA=fbf8fdf7659b36cb BusB=fbf8fdf7659b36cb
+[1235000] PASS: R30 we=1 wrote=94cfc1297682e2ed  BusA=94cfc1297682e2ed BusB=94cfc1297682e2ed
+[1255000] PASS: R30 we=0 wrote=6d536cda329fb665  BusA=94cfc1297682e2ed BusB=94cfc1297682e2ed
+[1275000] PASS: R31 we=1 wrote=5a8ae2b56fbe94df  BusA=0000000000000000 BusB=0000000000000000
+[1295000] PASS: R31 we=0 wrote=bcf11979a231ff44  BusA=0000000000000000 BusB=0000000000000000
+--------------------------------------------
+Done: 64 checks, 0 errors
+ALL TESTS PASSED
+tb_RegisterFile.v:93: $finish called at 1295000 (1ps)
+[?2004h]0;daniebahry@danielbahry: ~/ECEN_350_Labs/ECEN350_Labs/Lab05[01;32mdaniebahry@danielbahry[00m:[01;34m~/ECEN_350_Labs/ECEN350_Labs/Lab05 $[00m exit 
+[?2004lexit
+
+Script done on 2026-10-05 12:53:39-05:00 [COMMAND_EXIT_CODE="0"]
