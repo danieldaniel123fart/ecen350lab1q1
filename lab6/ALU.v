@@ -5,7 +5,7 @@
 `define PassB 4'b0111
 
 module ALU(
-    output reg [63:0] BusW,// 64 bit bus write
+    output reg [63:0] BusW,// 
     input      [63:0] BusA, // 64 bit bus input a
     input      [63:0] BusB, // 64 bit businput b
     input      [3:0]  ALUCtrl, // 4 option alu command ADD, OR, Pass B , SUB
