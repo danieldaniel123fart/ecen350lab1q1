@@ -1,0 +1,8 @@
+Script started on 2026-10-19 12:17:21-05:00 [COMMAND="bash -c "echo '> iverilog -o nextpc_tb.out NextPClogic.v NextPClogic_tb.v'; iverilog -o nextpc_tb.out NextPClogic.v NextPClogic_tb.v && echo '> vvp nextpc_tb.out' && vvp nextpc_tb.out"" TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="50"]
+> iverilog -o nextpc_tb.out NextPClogic.v NextPClogic_tb.v
+> vvp nextpc_tb.out
+VCD info: dumpfile NextPClogic_tb.vcd opened for output.
+PASS: all 104 tests passed.
+NextPClogic_tb.v:102: $finish called at 1040000 (1ps)
+
+Script done on 2026-10-19 12:17:21-05:00 [COMMAND_EXIT_CODE="0"]

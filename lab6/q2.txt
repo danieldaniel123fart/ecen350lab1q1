@@ -1,0 +1,8 @@
+Script started on 2026-10-19 12:17:21-05:00 [COMMAND="bash -c "echo '> iverilog -o alu_tb.out ALU.v ALU_tb.v'; iverilog -o alu_tb.out ALU.v ALU_tb.v && echo '> vvp alu_tb.out' && vvp alu_tb.out"" TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="50"]
+> iverilog -o alu_tb.out ALU.v ALU_tb.v
+> vvp alu_tb.out
+VCD info: dumpfile ALU_tb.vcd opened for output.
+PASS: all 1047 tests passed.
+ALU_tb.v:181: $finish called at 10470000 (1ps)
+
+Script done on 2026-10-19 12:17:21-05:00 [COMMAND_EXIT_CODE="0"]

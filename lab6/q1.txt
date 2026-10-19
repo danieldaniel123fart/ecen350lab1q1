@@ -1,0 +1,8 @@
+Script started on 2026-10-19 12:17:21-05:00 [COMMAND="bash -c "echo '> iverilog -o signext_tb.out SignExtender.v SignExtender_tb.v'; iverilog -o signext_tb.out SignExtender.v SignExtender_tb.v && echo '> vvp signext_tb.out' && vvp signext_tb.out"" TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="80" LINES="50"]
+> iverilog -o signext_tb.out SignExtender.v SignExtender_tb.v
+> vvp signext_tb.out
+VCD info: dumpfile SignExtender_tb.vcd opened for output.
+PASS: all 816 tests passed.
+SignExtender_tb.v:118: $finish called at 8160000 (1ps)
+
+Script done on 2026-10-19 12:17:21-05:00 [COMMAND_EXIT_CODE="0"]
