@@ -5,14 +5,14 @@
 `define PassB 4'b0111
 
 module ALU(
-    output reg [63:0] BusW,
-    input      [63:0] BusA,
-    input      [63:0] BusB,
-    input      [3:0]  ALUCtrl,
-    output            Zero
+    output reg [63:0] BusW,// 64 bit bus write
+    input      [63:0] BusA, // 64 bit bus input a
+    input      [63:0] BusB, // 64 bit businput b
+    input      [3:0]  ALUCtrl, // 4 option alu command ADD, OR, Pass B , SUB
+    output            Zero 
 );
 
-    always @(*) begin
+    always @(*) begin // on every clock cycle
         case (ALUCtrl)
             `AND:    BusW = BusA & BusB;   // bitwise AND
             `OR:     BusW = BusA | BusB;   // bitwise OR
@@ -24,6 +24,6 @@ module ALU(
     end
 
     // Zero is 1 only when every bit of BusW is 0, for any operation
-    assign Zero = (BusW == 64'b0);
+    assign Zero = (BusW == 64'b0); 
 
 endmodule
