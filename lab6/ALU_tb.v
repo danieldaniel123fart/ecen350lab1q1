@@ -1,5 +1,7 @@
 `timescale 1ns/1ps
 
+
+//Defines
 `ifndef AND
 `define AND   4'b0000
 `endif
@@ -24,7 +26,7 @@ module ALU_tb;
     localparam [63:0] ALL0 = 64'h0000000000000000;
     localparam [63:0] ALL1 = 64'hFFFFFFFFFFFFFFFF;
 
-    reg  [63:0] BusA;
+    reg  [63:0] BusA; // inputs 
     reg  [63:0] BusB;
     reg  [3:0]  ALUCtrl;
     wire [63:0] BusW;
@@ -41,7 +43,6 @@ module ALU_tb;
     // Coverage: how many tests (per function) expected Zero=1 and Zero=0
     integer zero1_count [0:NUM_FUNCS-1];
     integer zero0_count [0:NUM_FUNCS-1];
-
     ALU dut (
         .BusW    (BusW),
         .BusA    (BusA),
@@ -65,10 +66,10 @@ module ALU_tb;
         end
     endfunction
 
-    // Reference model. Written differently from the DUT on purpose:
-    //   AND/OR use De Morgan's laws instead of & and |
-    //   ADD uses a 65-bit sum and keeps the low 64 bits
-    //   SUB uses two's complement (a + ~b + 1) instead of the - operator
+    // Reference model. Written differently from the DUT on purpose. We will us ethis to check againt the values from the ALU.
+    //   AND/OR use De Morgan's laws instead of & and | to use a diffent comp than the same as the component 
+    //   ADD uses a 65-bit sum and keeps the low 64 bits to handle overflow
+    //   SUB uses two's complement (a + ~b + 1) instead of the - operator same reason as AND/OR
     function [63:0] expected;
         input [63:0] a;
         input [63:0] b;
