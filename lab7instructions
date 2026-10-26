@@ -1,0 +1,178 @@
+Lab 07: Single Cycle Processor Control Unit and Top Level
+Objective
+The objective of this lab is to implement the main control unit and integrate it with the data path, to build a complete, single-cycle processor microarchitecture.
+
+Pre-requisite
+For this lab you are expected to be familiar with the ARMv8 single-cycle processor from the textbook microarchitecture.  You will also need the components you designed in the previous labs.
+
+Introduction
+In this lab, you will complete the control unit for the single-cycle ARMv8 processor and assemble all of the datapath components constructed in previous labs using Verilog. You will also execute some test programs on your single-cycle processor. By the end of this lab, you should thoroughly understand the internal operation of the ARMv8 single-cycle processor.
+
+Note, this lab requires you to have completed labs 5 and 6 and that your components from those labs have been thoroughly tested.   If you still are seeing bugs in the components you designed in labs 5 or 6, stop now and complete those labs before attempting this lab.  It is _far_ harder to debug at the full core level than it is at the unit level.
+
+Question at position 1
+1
+ 
+Essay
+30 points
+
+ 
+ 
+Question at position 1 
+Build and run the SingleCycleControl unit you designed in the prelab though the testbench you designed for it.
+
+If any of the tests fail, debug them and fix your code.
+
+Bring up GTKWave on the VCD dump file your testbench creates.
+
+Demo for your TA. Your demo should include:
+
+You walking the TA through your control unit and testbench Verilog code.  You should be able to explain how both work.
+You showing the test playing out in the GTKWave window
+In the space below cut and paste the output from your testbench.   
+
+Discuss in the space below, discuss any challenges you might have from your testing strategy on this design.
+
+What happens if a garbled instruction were fed into this controller (ie one who's opcode does not match any of the ones you have predefined)?
+
+Build and run the SingleCycleControl unit you designed in the prelab though the testbench you designed for it.
+
+If any of the tests fail, debug them and fix your code.
+
+Bring up GTKWave on the VCD dump file your testbench creates.
+
+Demo for your TA. Your demo should include:
+
+You walking the TA through your control unit and testbench Verilog code.  You should be able to explain how both work.
+You showing the test playing out in the GTKWave window
+In the space below cut and paste the output from your testbench.   
+
+Discuss in the space below, discuss any challenges you might have from your testing strategy on this design.
+
+What happens if a garbled instruction were fed into this controller (ie one who's opcode does not match any of the ones you have predefined)?
+
+
+
+
+
+
+
+
+
+
+p
+
+
+
+
+
+
+Question at position 2
+2
+ 
+Essay
+50 points
+
+ 
+ 
+Question at position 2 
+Build and run the SingleCycleProc module and its testbench.
+
+If any of the test fails, debug and fix your code.
+
+Bring up GTKWave on the VCD dump file your testbench creates.
+
+Demo for your TA. Your demo should include:
+
+You walking the TA through the top level file and testbench Verilog code.  You should be able to explain how both work.
+You showing the test playing out in the GTKWave window
+In the space below cut and paste the output from your testbench.   
+
+ 
+
+Build and run the SingleCycleProc module and its testbench.
+
+If any of the test fails, debug and fix your code.
+
+Bring up GTKWave on the VCD dump file your testbench creates.
+
+Demo for your TA. Your demo should include:
+
+You walking the TA through the top level file and testbench Verilog code.  You should be able to explain how both work.
+You showing the test playing out in the GTKWave window
+In the space below cut and paste the output from your testbench.   
+
+ 
+
+
+
+
+
+
+
+
+
+
+p
+
+
+
+
+
+
+Question at position 3
+3
+ 
+Essay
+50 points
+
+ 
+ 
+Question at position 3 
+In this problem you will consider extending your SingleCycle Processor to support the MOVZ instruction. Examine your green sheet to learn about the MOVZ instruction. Adding support for these instructions will require additions throughout the datapath and control of the processor.  In the space below write a paragraph describing the changes to the control and datapath required to add these two instructions.  You should detail changes to the control unit (if any), and should include a table of the control signals for each instruction.
+
+Once you have completed the modifications, write a test for the new instructions that performs the following actions:
+
+Use the MOVZ instruction, and any other instructions needed, to construct the following constant 0x123456789abcdef0 in register X9.
+Store this immediate value to memory at memory address 0x28
+Load this value back to register X10 
+Write this test in assembly language, and then convert it into binary instructions and place your test in the InstructionMemory.v file where it says "Add code for your tests here".  You must also modify the SingleCycleProcTest.v file to start your new test after running the original test (the original test should run before your new test to verify you did not break any old instructions). 
+
+Demo for your TA. Your demo should include:
+
+You walking the TA through the top level file and testbench Verilog code.  You should be able to explain how both work.
+You showing the test playing out in the GTKWave window
+In the space below, cut and paste the text for all the units you changed and extended to make this test work.
+
+In this problem you will consider extending your SingleCycle Processor to support the MOVZ instruction. Examine your green sheet to learn about the MOVZ instruction. Adding support for these instructions will require additions throughout the datapath and control of the processor.  In the space below write a paragraph describing the changes to the control and datapath required to add these two instructions.  You should detail changes to the control unit (if any), and should include a table of the control signals for each instruction.
+
+Once you have completed the modifications, write a test for the new instructions that performs the following actions:
+
+Use the MOVZ instruction, and any other instructions needed, to construct the following constant 0x123456789abcdef0 in register X9.
+Store this immediate value to memory at memory address 0x28
+Load this value back to register X10 
+Write this test in assembly language, and then convert it into binary instructions and place your test in the InstructionMemory.v file where it says "Add code for your tests here".  You must also modify the SingleCycleProcTest.v file to start your new test after running the original test (the original test should run before your new test to verify you did not break any old instructions). 
+
+Demo for your TA. Your demo should include:
+
+You walking the TA through the top level file and testbench Verilog code.  You should be able to explain how both work.
+You showing the test playing out in the GTKWave window
+In the space below, cut and paste the text for all the units you changed and extended to make this test work.
+
+
+
+
+
+
+
+
+
+
+p
+
+
+
+
+
+
+
