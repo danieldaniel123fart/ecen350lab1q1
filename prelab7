@@ -1,0 +1,533 @@
+
+39.5 / 40 points
+Fill in the Blank
+As you know the Control unit takes the opcode as input and generates control signals as in the figure above.
+
+Fill in the following truth table:
+
+Instruction	Opcode	SignOp	Reg2Loc	Branch	Uncondbranch	MemRead	ALUOp	MemtoReg	MemWrite	ALUSrc	RegWrite
+LDUR	11111000010	
+Correct answer:
+01
+Correct answer:
+X
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+1
+Correct answer:
+0010
+Correct answer:
+1
+Correct answer:
+0
+Correct answer:
+1
+Correct answer:
+1
+STUR	11111000000	
+Correct answer:
+01
+Correct answer:
+1
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0010
+Correct answer:
+X
+Correct answer:
+1
+Correct answer:
+1
+Correct answer:
+0
+ADD	10001011000	
+Correct answer:
+XX
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0010
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+1
+SUB (I-Type)	1101000100X	
+Correct answer:
+00
+Correct answer:
+X
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0110
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+1
+Correct answer:
+1
+AND	10001010000	
+Correct answer:
+XX
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0000
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+1
+ORR	10101010000	
+Correct answer:
+XX
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0001
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+1
+CBZ	10110100XXX	
+Correct answer:
+10
+Correct answer:
+1
+Correct answer:
+1
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0111
+Correct answer:
+X
+Correct answer:
+0
+Correct answer:
+0
+Correct answer:
+0
+B	000101XXXXX	
+Correct answer:
+11
+Correct answer:
+X
+Incorrect answer:
+0
+Correct Answer:
+X
+Correct answer:
+1
+Correct answer:
+0
+Correct answer:
+XXXX
+Correct answer:
+X
+Correct answer:
+0
+Correct answer:
+X
+Correct answer:
+0
+ 
+
+Some control signals are single bit, while others (SignOp and ALUOp) are multi-bit (see the previous prelab for tables that may help you).
+
+For each bit, input either 0, 1, or X as appropriate (note, X is case sensitive here)
+
+Results for question 2.
+2
+40 points possible
+Essay
+Write the Verilog implementation of the SC_Control unit as specified in the instructions section at the top of this prelab.  In particular, your implementation should conform to the following module definition:
+
+`define OPCODE_ANDREG 11'b10001011000
+`define OPCODE_ORRREG 11'b10101010000
+`define OPCODE_ADDREG 11'b10001011000
+`define OPCODE_SUBREG 11'b11001011000
+
+`define OPCODE_ADDIMM 11'b1001000100?
+`define OPCODE_SUBIMM 11'b1101000100?
+
+`define OPCODE_MOVZ   11'b110100101??
+
+`define OPCODE_B      11'b000101?????
+`define OPCODE_CBZ    11'b10110100???
+
+`define OPCODE_LDUR   11'b11111000010
+`define OPCODE_STUR   11'b11111000000
+
+module SC_Control(
+               output reg       Reg2Loc,
+               output reg       ALUSrc,
+               output reg       MemtoReg,
+               output reg       RegWrite,
+               output reg       MemRead,
+               output reg       MemWrite,
+               output reg       Branch,
+               output reg       Uncondbranch,
+               output reg [3:0] ALUOp,
+               output reg [1:0] SignOp,
+               input [10:0]     opcode
+               );
+Your Verilog implementation should conform to the following characteristics:
+
+It should be written in fully synthesizable behavioral Verilog with no unintended latches.
+Undefined opcodes should output all 0's for all control bits.
+Assume that SignOp and ALUOp are encoded as described in the previous labs/prelabs.
+You should use a casez statement to allow for logic minimization and optimization cognizant of the X's (don't cares) in your truth table.
+Copy your Verilog code into the space below.
+You may leverage an LLM in generating this code, however you must ensure it does not have bugs and you will have to explain how it works during Lab.
+
+ 
+
+Waiting for grade
+
+`timescale 1ns/1ps
+
+// Opcode definitions
+// Corrected ANDREG opcode (typo in assignment)
+`define OPCODE_ANDREG 11'b10001010000
+`define OPCODE_ORRREG 11'b10101010000
+`define OPCODE_ADDREG 11'b10001011000
+`define OPCODE_SUBREG 11'b11001011000
+
+`define OPCODE_ADDIMM 11'b1001000100?
+`define OPCODE_SUBIMM 11'b1101000100?
+
+`define OPCODE_MOVZ   11'b110100101??
+
+`define OPCODE_B      11'b000101?????
+`define OPCODE_CBZ    11'b10110100???
+
+`define OPCODE_LDUR   11'b11111000010
+`define OPCODE_STUR   11'b11111000000
+
+module SC_Control(
+    output reg       Reg2Loc,
+    output reg       ALUSrc,
+    output reg       MemtoReg,
+    output reg       RegWrite,
+    output reg       MemRead,
+    output reg       MemWrite,
+    output reg       Branch,
+    output reg       Uncondbranch,
+    output reg [3:0] ALUOp,
+    output reg [1:0] SignOp,
+    input [10:0]     opcode
+);
+
+always @(*) begin
+    // Default: all control signals zero.
+    // Prevents latches and handles invalid opcodes.
+    Reg2Loc      = 1'b0;
+    ALUSrc       = 1'b0;
+    MemtoReg     = 1'b0;
+    RegWrite     = 1'b0;
+    MemRead      = 1'b0;
+    MemWrite     = 1'b0;
+    Branch       = 1'b0;
+    Uncondbranch = 1'b0;
+    ALUOp        = 4'b0000;
+    SignOp       = 2'b00;
+
+    casez (opcode)
+
+        `OPCODE_LDUR: begin
+            SignOp   = 2'b01;
+            ALUSrc   = 1'b1;
+            MemRead  = 1'b1;
+            MemtoReg = 1'b1;
+            RegWrite = 1'b1;
+            ALUOp    = 4'b0010;
+        end
+
+        `OPCODE_STUR: begin
+            SignOp   = 2'b01;
+            Reg2Loc  = 1'b1;
+            ALUSrc   = 1'b1;
+            MemWrite = 1'b1;
+            ALUOp    = 4'b0010;
+        end
+
+        `OPCODE_ADDREG: begin
+            RegWrite = 1'b1;
+            ALUOp    = 4'b0010;
+        end
+
+        `OPCODE_SUBREG: begin
+            RegWrite = 1'b1;
+            ALUOp    = 4'b0110;
+        end
+
+        `OPCODE_ADDIMM: begin
+            ALUSrc   = 1'b1;
+            RegWrite = 1'b1;
+            ALUOp    = 4'b0010;
+        end
+
+        `OPCODE_SUBIMM: begin
+            ALUSrc   = 1'b1;
+            RegWrite = 1'b1;
+            ALUOp    = 4'b0110;
+        end
+
+        `OPCODE_ANDREG: begin
+            RegWrite = 1'b1;
+            ALUOp    = 4'b0000;
+        end
+
+        `OPCODE_ORRREG: begin
+            RegWrite = 1'b1;
+            ALUOp    = 4'b0001;
+        end
+
+        `OPCODE_CBZ: begin
+            SignOp   = 2'b10;
+            Reg2Loc  = 1'b1;
+            Branch   = 1'b1;
+            ALUOp    = 4'b0111;
+        end
+
+        `OPCODE_B: begin
+            SignOp       = 2'b11;
+            Uncondbranch = 1'b1;
+        end
+
+        default: begin
+            // Unsupported instruction: outputs stay zero
+        end
+
+    endcase
+end
+
+endmodule
+
+Waiting for grade
+Results for question 3.
+3
+40 points possible
+Essay
+Write a self-checking testbench for your Control Unit. 
+
+Since the number of possible inputs is limited we will use a partially exhaustive strategy for testing this unit.  Thus, your testbench should perform tests which conform to the following constraints:
+
+The testbench should be self-checking, printing an error for each test that fails.
+The opcode for each instruction type your control unit supports should be tested for all possible values for the don't care bits in each's opcode definition.
+You should also test 10 randomly generated opcodes which do not match any of the supported opcodes and ensure the correct default behavior
+Your testbench should create a VCD dumpfile for examination and debugging
+Copy your testbench code below.
+You may leverage an LLM in generating this code, however you must ensure it does not have bugs and you will have to explain how it works during Lab. 
+
+Note:   If you use an LLM, document below any errors you found, that you had to correct and how you corrected them.
+
+Waiting for grade
+
+`timescale 1ns/1ps
+
+module SC_Control_tb;
+
+reg [10:0] opcode;
+
+wire Reg2Loc, ALUSrc, MemtoReg, RegWrite;
+wire MemRead, MemWrite, Branch, Uncondbranch;
+wire [3:0] ALUOp;
+wire [1:0] SignOp;
+
+integer tests, errors, i;
+reg [10:0] random_opcode;
+
+// Instantiate the control unit
+SC_Control dut (
+    .Reg2Loc(Reg2Loc),
+    .ALUSrc(ALUSrc),
+    .MemtoReg(MemtoReg),
+    .RegWrite(RegWrite),
+    .MemRead(MemRead),
+    .MemWrite(MemWrite),
+    .Branch(Branch),
+    .Uncondbranch(Uncondbranch),
+    .ALUOp(ALUOp),
+    .SignOp(SignOp),
+    .opcode(opcode)
+);
+
+// Compare actual outputs against expected outputs
+task check;
+    input [10:0] op;
+    input [7:0] flags;
+    input [3:0] alu;
+    input [1:0] sign;
+
+    reg [13:0] actual, expected;
+
+    begin
+        opcode = op;
+        #10;
+
+        actual = {Reg2Loc, ALUSrc, MemtoReg,
+                  RegWrite, MemRead, MemWrite,
+                  Branch, Uncondbranch, ALUOp, SignOp};
+
+        expected = {flags, alu, sign};
+
+        tests = tests + 1;
+
+        if (actual !== expected) begin
+            errors = errors + 1;
+            $display("ERROR opcode=%b expected=%b actual=%b",
+                     op, expected, actual);
+        end
+    end
+endtask
+
+// Identify supported opcodes
+function supported;
+    input [10:0] op;
+    begin
+        supported = 1'b1;
+        casez (op)
+            11'b11111000010,
+            11'b11111000000,
+            11'b10001011000,
+            11'b11001011000,
+            11'b10001010000,
+            11'b10101010000,
+            11'b1001000100?,
+            11'b1101000100?,
+            11'b10110100???,
+            11'b000101?????: supported = 1'b1;
+            default: supported = 1'b0;
+        endcase
+    end
+endfunction
+
+initial begin
+    tests = 0;
+    errors = 0;
+    opcode = 0;
+
+    // Create VCD waveform dump
+    $dumpfile("SC_Control_tb.vcd");
+    $dumpvars(0, SC_Control_tb);
+
+    // Test fixed opcodes
+    check(11'b11111000010, 8'b01111000, 4'b0010, 2'b01); // LDUR
+    check(11'b11111000000, 8'b11000100, 4'b0010, 2'b01); // STUR
+    check(11'b10001011000, 8'b00010000, 4'b0010, 2'b00); // ADD
+    check(11'b11001011000, 8'b00010000, 4'b0110, 2'b00); // SUB
+    check(11'b10001010000, 8'b00010000, 4'b0000, 2'b00); // AND
+    check(11'b10101010000, 8'b00010000, 4'b0001, 2'b00); // ORR
+
+    // Test every ADD immediate variation
+    for (i = 0; i < 2; i = i + 1)
+        check(11'b10010001000 + i,
+              8'b01010000, 4'b0010, 2'b00);
+
+    // Test every SUB immediate variation
+    for (i = 0; i < 2; i = i + 1)
+        check(11'b11010001000 + i,
+              8'b01010000, 4'b0110, 2'b00);
+
+    // Test all 8 CBZ variations
+    for (i = 0; i < 8; i = i + 1)
+        check(11'b10110100000 + i,
+              8'b10000010, 4'b0111, 2'b10);
+
+    // Test all 32 B variations
+    for (i = 0; i < 32; i = i + 1)
+        check(11'b00010100000 + i,
+              8'b00000001, 4'b0000, 2'b11);
+
+    // Test 10 random unsupported opcodes
+    for (i = 0; i < 10; i = i + 1) begin
+        random_opcode = $random & 11'h7FF;
+
+        while (supported(random_opcode))
+            random_opcode = $random & 11'h7FF;
+
+        check(random_opcode,
+              8'b00000000, 4'b0000, 2'b00);
+    end
+
+    // Display final results
+    $display("Total tests: %0d", tests);
+    $display("Total errors: %0d", errors);
+
+    if (errors == 0)
+        $display("ALL TESTS PASSED");
+    else
+        $display("TESTBENCH FAILED");
+
+    $finish;
+end
+
+endmodule
+
+Waiting for grade
+Results for question 4.
+4
+50 points possible
+Essay
+In this problem you will complete your single cycle processor top level file.
+
+There are several files in the Lab07 directory that will aid in doing this.  
+
+InstructionMemory.v  - This will be the instruction memory for your processor. This is complete and ready for you to use with a small test program hard coded in the memory.  Look through the file and understand how it works as you will extend it during the lab.
+
+DataMemory.v  - This will be the data memory for your processor. This is already complete and ready for you to use with some data to be accessed by the test program in the instruction memory, however, you should also take a look at it and understand how it works.
+
+SingleCycleProc.v - This a partially completed top level file for your Single Cycle Processor.  
+
+SingleCycleProcTest.v  - This is a simple testbench for your single cycle processor, take a look at it and understand how it works, you will be extending it during the lab.
+
+Copy the units you designed in Lab 5 and Lab 6 into this directory, you will need them to run your full processor.  Complete the code for the SingleCycleProc.v and ensure that all connections are properly made for the datapath and control components you made in this and the previous two labs. The comments in the code will provide hints as to what is missing.
+
+Turn in your completed SingleCycleProc.v file here.
